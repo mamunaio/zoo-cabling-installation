@@ -1,0 +1,70 @@
+---
+import '../styles/global.css';
+import { business } from '../config/business';
+import Header from '../components/layout/Header.astro';
+import MobileNav from '../components/layout/MobileNav.astro';
+import Footer from '../components/layout/Footer.astro';
+import MobileCallBar from '../components/layout/MobileCallBar.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalUrl?: string;
+}
+
+const {
+  title = `${business.name} | Professional Data & Ethernet Cabling Brisbane`,
+  description = "ACMA licensed Cat6 and Cat6A data cabling installation for homes, offices, gaming setups, smart TVs and security cameras across Brisbane.",
+  canonicalUrl = `${business.canonicalDomain}/`,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={`${business.name} — ${business.division}`} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={`${business.canonicalDomain}/images/hero-cabling-v3.jpg`} />
+    <meta property="og:locale" content="en_AU" />
+
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${business.canonicalDomain}/images/hero-cabling-v3.jpg`} />
+
+    <!-- Google Fonts Preconnect & Inter / Outfit Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <Header />
+    <MobileNav />
+    <slot />
+    <Footer />
+    <MobileCallBar />
+  </body>
+</html>
+
+<style is:global>
+  /* Safe offset on mobile to prevent MobileCallBar from obscuring page content */
+  @media (max-width: 767px) {
+    body {
+      padding-bottom: calc(68px + env(safe-area-inset-bottom, 0px));
+    }
+  }
+</style>

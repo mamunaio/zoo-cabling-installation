@@ -1,0 +1,220 @@
+---
+interface StandardItem {
+  index: string;
+  title: string;
+  description: string;
+}
+
+const standards: readonly StandardItem[] = [
+  {
+    index: '01',
+    title: 'Flush-Mounted Faceplates',
+    description: 'High-grade Clipsal wall plates matched cleanly to your residential interior or commercial office fitout.',
+  },
+  {
+    index: '02',
+    title: 'Concealed Wall Cavities',
+    description: 'Cables routed cleanly through internal cavity walls and ceiling insulation without exposed surface conduit where cavity access permits.',
+  },
+  {
+    index: '03',
+    title: '100% Tested & Verified',
+    description: 'Every data jack and termination is verified with digital telecommunications cable testers before we leave site.',
+  },
+  {
+    index: '04',
+    title: 'Lifetime Workmanship',
+    description: 'If a port or termination ever fails due to installation, we fix it free of charge.',
+  },
+];
+---
+
+<section class="craftsmanship-section" id="craftsmanship" aria-labelledby="craftsmanship-heading">
+  <div class="container craftsmanship-container">
+    <div class="craftsmanship-grid">
+      <!-- Left Column: Header & Brand Statement -->
+      <div class="craftsmanship-intro">
+        <div class="craftsmanship-eyebrow">
+          <span class="eyebrow-line" aria-hidden="true"></span>
+          <span>Craftsmanship</span>
+        </div>
+
+        <h2 id="craftsmanship-heading" class="craftsmanship-title">
+          Built to last.
+        </h2>
+
+        <p class="craftsmanship-lead">
+          Every installation is finished to the same standard, whether it’s a single wall plate or a full office fit-out.
+        </p>
+
+        <div class="craftsmanship-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="note-icon" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          <span>Licensed telecommunications cabler standards applied across all jobs.</span>
+        </div>
+      </div>
+
+      <!-- Right Column: The 4 Workmanship Standards -->
+      <div class="craftsmanship-list-col">
+        <ol class="standards-list">
+          {standards.map((item) => (
+            <li class="standard-item">
+              <span class="standard-index" aria-hidden="true">{item.index}</span>
+              <div class="standard-body">
+                <h3 class="standard-title">{item.title}</h3>
+                <p class="standard-desc">{item.description}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .craftsmanship-section {
+    padding-block: var(--section-padding-y);
+    background-color: var(--color-bg-base);
+    border-top: 1px solid var(--color-border);
+    position: relative;
+  }
+
+  .craftsmanship-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(2.5rem, 5vw, 4.5rem);
+    align-items: start;
+  }
+
+  @media (min-width: 1024px) {
+    .craftsmanship-grid {
+      grid-template-columns: 0.95fr 1.25fr;
+      gap: clamp(3rem, 5vw, 5rem);
+    }
+  }
+
+  /* ------------------------------------------------------------
+     Left Column
+     ------------------------------------------------------------ */
+  .craftsmanship-intro {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .craftsmanship-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-cta);
+  }
+
+  .eyebrow-line {
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-cta);
+    border-radius: var(--radius-full);
+  }
+
+  .craftsmanship-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    font-weight: 800;
+    color: var(--color-text-main);
+  }
+
+  .craftsmanship-lead {
+    font-size: var(--text-base);
+    line-height: 1.7;
+    color: var(--color-text-body);
+    max-width: 48ch;
+  }
+
+  .craftsmanship-note {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: var(--space-2);
+    padding: 0.65rem 0.85rem;
+    background: rgba(37, 99, 235, 0.08);
+    border: 1px solid var(--color-brand-border);
+    border-radius: var(--radius-md);
+    font-size: var(--text-xs);
+    color: var(--color-accent-cyan-light);
+    font-weight: 500;
+    max-width: 48ch;
+  }
+
+  .note-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--color-cta);
+    flex-shrink: 0;
+  }
+
+  /* ------------------------------------------------------------
+     Right Column: Standards List
+     ------------------------------------------------------------ */
+  .craftsmanship-list-col {
+    width: 100%;
+  }
+
+  .standards-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .standard-item {
+    display: flex;
+    align-items: flex-start;
+    gap: clamp(1rem, 3vw, 1.75rem);
+    padding-block: clamp(1.25rem, 2.5vw, 1.75rem);
+    border-bottom: 1px solid var(--color-border);
+    transition: background var(--transition-fast);
+  }
+
+  .standard-item:hover {
+    background: rgba(255, 255, 255, 0.015);
+  }
+
+  .standard-index {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 800;
+    color: var(--color-cta);
+    line-height: 1;
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+
+  .standard-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .standard-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--color-text-main);
+    line-height: 1.25;
+  }
+
+  .standard-desc {
+    font-size: var(--text-sm);
+    line-height: 1.65;
+    color: var(--color-text-muted);
+    max-width: 62ch;
+  }
+</style>
