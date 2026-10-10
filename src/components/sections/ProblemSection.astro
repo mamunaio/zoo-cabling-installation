@@ -226,11 +226,27 @@ const pillars: readonly Pillar[] = [
     position: relative;
     border-radius: var(--radius-xl);
     overflow: hidden;
-    border: 1px solid var(--color-border-medium);
-    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(14, 165, 233, 0.22);
+    box-shadow:
+      0 20px 40px -12px rgba(0, 0, 0, 0.7),
+      0 0 0 1px rgba(14, 165, 233, 0.18),
+      0 0 28px -4px rgba(14, 165, 233, 0.22),
+      0 0 56px -8px rgba(37, 99, 235, 0.16),
+      0 12px 36px -8px rgba(249, 115, 22, 0.11);
     background-color: var(--color-bg-surface);
     aspect-ratio: 4 / 3;
     min-height: 280px;
+    transition: box-shadow var(--transition-normal), border-color var(--transition-normal);
+  }
+
+  .media-frame:hover {
+    border-color: rgba(14, 165, 233, 0.35);
+    box-shadow:
+      0 24px 48px -12px rgba(0, 0, 0, 0.75),
+      0 0 0 1px rgba(14, 165, 233, 0.26),
+      0 0 36px -2px rgba(14, 165, 233, 0.28),
+      0 0 68px -6px rgba(37, 99, 235, 0.2),
+      0 14px 42px -6px rgba(249, 115, 22, 0.15);
   }
 
   @media (min-width: 1024px) {

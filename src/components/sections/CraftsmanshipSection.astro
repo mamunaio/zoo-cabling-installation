@@ -47,11 +47,15 @@ const standards: readonly StandardItem[] = [
           Every installation is finished to the same standard, whether it’s a single wall plate or a full office fit-out.
         </p>
 
-        <div class="craftsmanship-note">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="note-icon" aria-hidden="true">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-          </svg>
-          <span>Licensed telecommunications cabler standards applied across all jobs.</span>
+        <div class="craftsmanship-compliance">
+          <div class="compliance-icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="compliance-icon">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <p class="compliance-text">
+            Licensed telecommunications cabler standards applied across all jobs.
+          </p>
         </div>
       </div>
 
@@ -90,8 +94,9 @@ const standards: readonly StandardItem[] = [
 
   @media (min-width: 1024px) {
     .craftsmanship-grid {
-      grid-template-columns: 0.95fr 1.25fr;
-      gap: clamp(3rem, 5vw, 5rem);
+      grid-template-columns: 1fr 1.25fr;
+      gap: clamp(3rem, 5vw, 5.5rem);
+      align-items: center;
     }
   }
 
@@ -124,7 +129,7 @@ const standards: readonly StandardItem[] = [
 
   .craftsmanship-title {
     font-family: var(--font-heading);
-    font-size: var(--text-3xl);
+    font-size: clamp(2rem, 3.2vw, 2.75rem);
     line-height: 1.15;
     letter-spacing: -0.025em;
     font-weight: 800;
@@ -135,29 +140,45 @@ const standards: readonly StandardItem[] = [
     font-size: var(--text-base);
     line-height: 1.7;
     color: var(--color-text-body);
-    max-width: 48ch;
+    max-width: 44ch;
   }
 
-  .craftsmanship-note {
+  .craftsmanship-compliance {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-top: var(--space-2);
+    padding: 0.85rem 1rem;
+    background: rgba(16, 23, 42, 0.5);
+    border: 1px solid var(--color-border-medium);
+    border-radius: var(--radius-md);
+    max-width: 44ch;
+  }
+
+  .compliance-icon-wrap {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    margin-top: var(--space-2);
-    padding: 0.65rem 0.85rem;
-    background: rgba(37, 99, 235, 0.08);
-    border: 1px solid var(--color-brand-border);
-    border-radius: var(--radius-md);
-    font-size: var(--text-xs);
-    color: var(--color-accent-cyan-light);
-    font-weight: 500;
-    max-width: 48ch;
-  }
-
-  .note-icon {
-    width: 16px;
-    height: 16px;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: var(--radius-sm);
+    background: rgba(249, 115, 22, 0.1);
+    border: 1px solid rgba(249, 115, 22, 0.25);
     color: var(--color-cta);
     flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .compliance-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .compliance-text {
+    font-size: var(--text-xs);
+    line-height: 1.55;
+    color: var(--color-text-body);
+    font-weight: 500;
   }
 
   /* ------------------------------------------------------------
@@ -177,8 +198,9 @@ const standards: readonly StandardItem[] = [
   .standard-item {
     display: flex;
     align-items: flex-start;
-    gap: clamp(1rem, 3vw, 1.75rem);
-    padding-block: clamp(1.25rem, 2.5vw, 1.75rem);
+    gap: var(--space-4);
+    padding-block: clamp(1rem, 1.8vw, 1.25rem);
+    padding-inline: 0.5rem;
     border-bottom: 1px solid var(--color-border);
     transition: background var(--transition-fast);
   }
@@ -189,32 +211,48 @@ const standards: readonly StandardItem[] = [
 
   .standard-index {
     font-family: var(--font-heading);
-    font-size: clamp(1.5rem, 3vw, 2.25rem);
-    font-weight: 800;
+    font-size: var(--text-sm);
+    font-weight: 700;
     color: var(--color-cta);
-    line-height: 1;
+    letter-spacing: 0.05em;
+    line-height: 1.4;
+    width: 2rem;
     flex-shrink: 0;
-    padding-top: 2px;
+    padding-top: 1px;
   }
 
   .standard-body {
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
+    gap: 0.3rem;
+    flex: 1;
   }
 
   .standard-title {
     font-family: var(--font-heading);
-    font-size: var(--text-lg);
+    font-size: var(--text-base);
     font-weight: 700;
     color: var(--color-text-main);
-    line-height: 1.25;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
   }
 
   .standard-desc {
     font-size: var(--text-sm);
-    line-height: 1.65;
+    line-height: 1.6;
     color: var(--color-text-muted);
-    max-width: 62ch;
+    max-width: 58ch;
+  }
+
+  @media (max-width: 640px) {
+    .standard-item {
+      gap: var(--space-3);
+      padding-inline: 0;
+    }
+
+    .standard-index {
+      width: 1.75rem;
+      font-size: var(--text-xs);
+    }
   }
 </style>
