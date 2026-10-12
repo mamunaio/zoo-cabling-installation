@@ -3,14 +3,18 @@ import { business } from '../../config/business';
 
 interface FAQItem {
   id: string;
+  index: string;
   question: string;
+  highlights: readonly string[];
   paragraphs: readonly string[];
 }
 
 const faqItems: readonly FAQItem[] = [
   {
     id: 'cat6-vs-cat6a',
+    index: '01',
     question: 'Cat6 vs Cat6A: Which should I choose?',
+    highlights: ['Up to 10 Gbps Transmission', 'Pure Solid Copper', 'Residential & Commercial Value'],
     paragraphs: [
       'For the vast majority of residential homes and standard office environments, high-grade pure copper Cat6 is the optimal choice. Cat6 reliably supports speeds up to 10 Gbps over shorter runs (typically up to 37–55 metres depending on crosstalk and routing) and standard 1 Gbps up to the full 100-metre specification.',
       'Cat6A (Augmented) features heavier shielding and tighter pair-twisting to support 10 Gbps transmission across full 100-metre distances with higher resistance to alien crosstalk. It is ideal for dense commercial server racks, data centres, or new builds seeking ultimate future-proofing. However, because Cat6A is thicker and less flexible, standard pure copper Cat6 offers the ideal balance of speed, route flexibility, and value for everyday installations.',
@@ -18,7 +22,9 @@ const faqItems: readonly FAQItem[] = [
   },
   {
     id: 'ethernet-port-cost',
+    index: '02',
     question: 'How much does an Ethernet port installation cost?',
+    highlights: ['Transparent Upfront Quotes', 'Multi-Port Volume Savings', 'Zero Hidden Fees'],
     paragraphs: [
       'Pricing depends on the specific requirements of your property rather than an arbitrary flat rate. Key factors include your building structure (single-storey homes with accessible ceiling spaces are simpler than multi-storey dwellings or solid brick/concrete walls), cabling pathway access, and the distance from your central router or patch panel to each outlet.',
       'Installing multiple data points during the same visit significantly reduces the cost per port because setup time and cable-pull pathways are shared. We provide clear, upfront quotes based on your exact layout before starting any work—with no hidden fees.',
@@ -26,81 +32,186 @@ const faqItems: readonly FAQItem[] = [
   },
   {
     id: 'acma-licensed',
+    index: '03',
     question: 'Are you ACMA licensed and appropriately endorsed?',
+    highlights: ['ACMA Open Cabling License', 'AS/CA S009 & AS/NZS 3080', 'TCA1 Compliance Certification'],
     paragraphs: [
       'Yes, 100%. Under Australian telecommunications regulations, any fixed cabling connected to the telecommunications network (including NBN-connected premises) must legally be installed by an ACMA-registered cabler.',
       'We hold current ACMA Open Cabling registrations with verified endorsements for structured Cat6/Cat6A and optical fibre cabling. Every job is completed in strict accordance with Australian Standards (AS/CA S009 and AS/NZS 3080) and certified with digital testers upon completion.',
+    ],
+  },
+  {
+    id: 'concealed-cavity-walls',
+    index: '04',
+    question: 'Can cables be concealed inside existing cavity walls without surface conduit?',
+    highlights: ['Cavity Wall Fishing', 'Flush Clipsal Wall Plates', 'No Ugly Surface Plastic'],
+    paragraphs: [
+      'Yes. In the vast majority of Australian residential and commercial properties with standard plasterboard cavity walls and ceiling or sub-floor access, cables are routed completely out of sight within the wall cavity.',
+      'We fish cables through the internal wall frames using specialized rods and install premium flush-mounted Clipsal faceplates that blend seamlessly with your existing electrical points. Surface conduit is only ever used as a last resort on solid masonry walls, and always discussed with you first.',
+    ],
+  },
+  {
+    id: 'wifi-ap-poe-cameras',
+    index: '05',
+    question: 'Do you install cabling for UniFi / Wi-Fi Access Points and PoE cameras?',
+    highlights: ['High-Power PoE+ Support', 'Ceiling Mount Drops', 'Clean Patch Panel Racks'],
+    paragraphs: [
+      'Absolutely. Ceiling-mounted wireless access points (like Ubiquiti UniFi, TP-Link Omada, or Aruba) and PoE security cameras are among our most frequent installations.',
+      'We run dedicated, solid copper Cat6 lines directly from your central network switch or patch panel to ceiling points or external eaves, providing both gigabit data and Power-over-Ethernet (PoE/PoE+) without needing separate power points.',
     ],
   },
 ];
 ---
 
 <section class="faq-section" id="faq" aria-labelledby="faq-heading">
+  <!-- Subtle Atmospheric Backdrop Elements -->
+  <div class="faq-ambient-glow faq-ambient-left" aria-hidden="true"></div>
+  <div class="faq-ambient-glow faq-ambient-right" aria-hidden="true"></div>
+  <div class="faq-grid-pattern" aria-hidden="true"></div>
+
   <div class="container faq-container">
     <div class="faq-grid">
       <!-- Left Column: Section Intro & Direct Contact Help -->
       <div class="faq-intro">
+        <!-- Eyebrow Badge -->
         <div class="faq-eyebrow">
-          <span class="eyebrow-line" aria-hidden="true"></span>
-          <span>Frequently Asked Questions</span>
+          <span class="eyebrow-ping" aria-hidden="true"></span>
+          <span class="eyebrow-text">Frequently Asked Questions</span>
         </div>
 
         <h2 id="faq-heading" class="faq-title">
-          Clear answers to common cabling questions.
+          Clear answers to common <span class="title-highlight">cabling questions</span>.
         </h2>
 
         <p class="faq-lead">
           Everything you need to know about structured Cat6 cabling, installation costs, and Australian telecommunications compliance before getting started.
         </p>
 
-        <!-- Help Card linking to Quote Form / Phone -->
+        <!-- Upgraded High-Tech Specialist Support Card -->
         <div class="faq-help-card">
-          <div class="help-header">
-            <svg class="help-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-            </svg>
-            <span class="help-heading">Have a property-specific question?</span>
+          <div class="card-ambient-accent" aria-hidden="true"></div>
+
+          <!-- Top Profile Header: Avatar & Specialist Details -->
+          <div class="specialist-top-row">
+            <div class="specialist-avatar-wrap">
+              <img
+                src="/images/Richard.png"
+                alt="Richard - Lead Cabling Specialist"
+                class="specialist-avatar"
+                width="44"
+                height="44"
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="avatar-status-dot" title="Available for technician consultations" aria-hidden="true"></span>
+            </div>
+            <div class="specialist-titles">
+              <span class="specialist-name-role">Richard • Lead Cabler</span>
+              <span class="specialist-status-text">ACMA Open Cabling Registered</span>
+            </div>
+            <span class="specialist-direct-badge">Direct Access</span>
           </div>
-          <p class="help-copy">
-            Every building layout is unique. Speak directly with Richard for advice on cable paths and data point positioning.
-          </p>
+
+          <!-- Card Main Content -->
+          <div class="help-card-body">
+            <h3 class="help-card-title">Have a property-specific question?</h3>
+            <p class="help-copy">
+              Every building layout is unique. Speak directly with Richard for practical advice on cable pathways, wall cavities, and data point positioning.
+            </p>
+          </div>
+
+          <!-- Interactive Action Buttons -->
           <div class="help-actions">
-            <a href={`tel:${business.phoneTel}`} class="help-btn help-btn-phone" aria-label={`Call Richard on ${business.phone}`}>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon" aria-hidden="true">
+            <a href={`tel:${business.phoneTel}`} class="help-btn-primary" aria-label={`Call Richard on ${business.phone}`}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="btn-icon" aria-hidden="true">
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
               </svg>
               <span>Call {business.phone}</span>
             </a>
-            <a href="#quote" class="help-link">
+            <a href="#quote" class="help-btn-secondary">
               <span>Request Upfront Quote</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="link-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-arrow" aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             </a>
           </div>
+
+          <!-- Trust Signals Footnote -->
+          <div class="help-footer-notes">
+            <span class="trust-tag">
+              <svg viewBox="0 0 20 20" fill="currentColor" class="tag-check" aria-hidden="true">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span>No Obligation</span>
+            </span>
+            <span class="trust-tag">
+              <svg viewBox="0 0 20 20" fill="currentColor" class="tag-check" aria-hidden="true">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span>Upfront Pricing</span>
+            </span>
+            <span class="trust-tag">
+              <svg viewBox="0 0 20 20" fill="currentColor" class="tag-check" aria-hidden="true">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span>Verified Test Reports</span>
+            </span>
+          </div>
         </div>
       </div>
 
-      <!-- Right Column: Accordion Items -->
+      <!-- Right Column: Accordion Items with Silky Smooth Grid Height Transition -->
       <div class="faq-list-col">
         <div class="faq-accordion" role="region" aria-label="Frequently asked questions list">
           {faqItems.map((item, index) => (
-            <details class="faq-item" name="faq-group" open={index === 0}>
-              <summary class="faq-summary">
-                <span class="faq-question-text">{item.question}</span>
-                <span class="faq-icon-wrapper" aria-hidden="true">
-                  <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <div class={`faq-item ${index === 0 ? 'is-open' : ''}`} data-faq-id={item.id}>
+              <button
+                type="button"
+                class="faq-trigger"
+                aria-expanded={index === 0 ? 'true' : 'false'}
+                aria-controls={`faq-panel-${item.id}`}
+                id={`faq-btn-${item.id}`}
+              >
+                <div class="trigger-left">
+                  <span class="faq-index-badge" aria-hidden="true">{item.index}</span>
+                  <span class="faq-question-text">{item.question}</span>
+                </div>
+                <div class="faq-toggle-btn" aria-hidden="true">
+                  <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="6 9 12 15 18 9"></polyline>
                   </svg>
-                </span>
-              </summary>
-              <div class="faq-answer">
-                {item.paragraphs.map((p) => (
-                  <p>{p}</p>
-                ))}
+                </div>
+              </button>
+
+              <!-- Animated Collapse Panel (CSS Grid Transition) -->
+              <div
+                id={`faq-panel-${item.id}`}
+                class="faq-collapse-panel"
+                role="region"
+                aria-labelledby={`faq-btn-${item.id}`}
+              >
+                <div class="faq-inner-body">
+                  <div class="faq-body-divider" aria-hidden="true"></div>
+
+                  <!-- Highlights Pills for Fast Scanning -->
+                  {item.highlights && (
+                    <div class="faq-highlights-row" aria-label="Key takeaway topics">
+                      {item.highlights.map((tag) => (
+                        <span class="highlight-pill">{tag}</span>
+                      ))}
+                    </div>
+                  )}
+
+                  <!-- Paragraph Answers -->
+                  <div class="faq-text-paragraphs">
+                    {item.paragraphs.map((p) => (
+                      <p>{p}</p>
+                    ))}
+                  </div>
+                </div>
               </div>
-            </details>
+            </div>
           ))}
         </div>
       </div>
@@ -109,48 +220,128 @@ const faqItems: readonly FAQItem[] = [
 </section>
 
 <script>
-  // Progressive enhancement for exclusive accordion behavior across browsers
-  const accordion = document.querySelector('.faq-accordion');
-  if (accordion) {
-    const items = accordion.querySelectorAll<HTMLDetailsElement>('details.faq-item');
+  // Silky Smooth Accessible Accordion with CSS Grid transition & exclusive toggle
+  function initFAQ() {
+    const accordion = document.querySelector('.faq-accordion');
+    if (!accordion) return;
+
+    const items = accordion.querySelectorAll<HTMLElement>('.faq-item');
+
     items.forEach((item) => {
-      item.addEventListener('toggle', () => {
-        if (item.open) {
-          items.forEach((other) => {
-            if (other !== item && other.open) {
-              other.open = false;
-            }
-          });
+      const trigger = item.querySelector<HTMLButtonElement>('.faq-trigger');
+      if (!trigger) return;
+
+      trigger.addEventListener('click', () => {
+        const isOpen = item.classList.contains('is-open');
+
+        // Close all other accordion items smoothly
+        items.forEach((other) => {
+          if (other !== item && other.classList.contains('is-open')) {
+            other.classList.remove('is-open');
+            const otherBtn = other.querySelector<HTMLButtonElement>('.faq-trigger');
+            if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        // Toggle current item
+        if (isOpen) {
+          item.classList.remove('is-open');
+          trigger.setAttribute('aria-expanded', 'false');
+        } else {
+          item.classList.add('is-open');
+          trigger.setAttribute('aria-expanded', 'true');
         }
       });
     });
   }
+
+  // Run on initial load and handle Astro page transitions
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFAQ);
+  } else {
+    initFAQ();
+  }
+  document.addEventListener('astro:page-load', initFAQ);
 </script>
 
 <style>
+  /* ------------------------------------------------------------
+     FAQ Section: Cinematic Tech Architecture
+     ------------------------------------------------------------ */
   .faq-section {
-    padding-block: var(--section-padding-y);
-    background-color: var(--color-bg-surface);
-    border-top: 1px solid var(--color-border);
     position: relative;
+    padding-block: var(--section-padding-y);
+    background-color: var(--color-bg-base);
+    border-top: 1px solid var(--color-border);
+    overflow: hidden;
   }
 
+  /* Atmospheric Light Glows */
+  .faq-ambient-glow {
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(100px);
+    z-index: 1;
+  }
+
+  .faq-ambient-left {
+    top: 5%;
+    left: -120px;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, rgba(37, 99, 235, 0.03) 50%, transparent 70%);
+  }
+
+  .faq-ambient-right {
+    bottom: 5%;
+    right: -100px;
+    background: radial-gradient(circle, rgba(249, 115, 22, 0.06) 0%, rgba(37, 99, 235, 0.04) 50%, transparent 70%);
+  }
+
+  .faq-grid-pattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: 1;
+    mask-image: radial-gradient(circle at 50% 50%, black 20%, transparent 80%);
+    -webkit-mask-image: radial-gradient(circle at 50% 50%, black 20%, transparent 80%);
+  }
+
+  .faq-container {
+    position: relative;
+    z-index: 10;
+  }
+
+  /* 2-Column Section Grid with Balanced Proportions */
   .faq-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: clamp(2.5rem, 5vw, 4.5rem);
+    gap: 2.5rem;
     align-items: start;
   }
 
   @media (min-width: 1024px) {
     .faq-grid {
-      grid-template-columns: 0.95fr 1.25fr;
-      gap: clamp(3rem, 5vw, 5rem);
+      grid-template-columns: 1fr 1.35fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .faq-grid {
+      grid-template-columns: 1fr 1.4fr;
+      gap: 4.5rem;
     }
   }
 
   /* ------------------------------------------------------------
-     Left Column: Intro & Help Card
+     Left Column: Header & Specialist Help Card
      ------------------------------------------------------------ */
   .faq-intro {
     display: flex;
@@ -158,22 +349,34 @@ const faqItems: readonly FAQItem[] = [
     gap: var(--space-4);
   }
 
+  /* Eyebrow Pill */
   .faq-eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: 0.65rem;
+    gap: var(--space-2);
+    align-self: flex-start;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-full);
+    background: rgba(249, 115, 22, 0.1);
+    border: 1px solid rgba(249, 115, 22, 0.28);
+    margin-bottom: var(--space-1);
+  }
+
+  .eyebrow-ping {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--color-cta);
+    box-shadow: 0 0 8px var(--color-cta);
+    flex-shrink: 0;
+  }
+
+  .eyebrow-text {
     font-size: var(--text-xs);
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.12em;
     color: var(--color-cta);
-  }
-
-  .eyebrow-line {
-    width: 24px;
-    height: 2px;
-    background-color: var(--color-cta);
-    border-radius: var(--radius-full);
   }
 
   .faq-title {
@@ -185,108 +388,259 @@ const faqItems: readonly FAQItem[] = [
     color: var(--color-text-main);
   }
 
+  .title-highlight {
+    color: var(--color-cta);
+    background: linear-gradient(135deg, #f97316 0%, #fb923c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
   .faq-lead {
     font-size: var(--text-base);
     line-height: 1.7;
     color: var(--color-text-body);
-    max-width: 48ch;
+    max-width: 44ch;
+    margin: 0;
   }
 
+  /* ------------------------------------------------------------
+     Glassmorphic Specialist Help Card (Clean, Uncramped Alignment)
+     ------------------------------------------------------------ */
   .faq-help-card {
-    margin-top: var(--space-4);
-    padding: clamp(1.25rem, 3vw, 1.75rem);
-    background-color: var(--color-bg-surface-raised);
+    position: relative;
+    margin-top: var(--space-3);
+    padding: clamp(1.35rem, 3vw, 1.85rem);
+    background: #ffffff;
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
-    max-width: 48ch;
+    gap: var(--space-4);
+    width: 100%;
+    overflow: hidden;
+    transition: border-color var(--transition-base), box-shadow var(--transition-base);
   }
 
-  .help-header {
+  .faq-help-card:hover {
+    border-color: rgba(37, 99, 235, 0.35);
+    box-shadow: 0 14px 34px -8px rgba(15, 23, 42, 0.08);
+  }
+
+  .card-ambient-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, rgba(14, 165, 233, 0.6), rgba(249, 115, 22, 0.6), transparent);
+    pointer-events: none;
+  }
+
+  /* Specialist Profile Row */
+  .specialist-top-row {
     display: flex;
     align-items: center;
-    gap: 0.65rem;
+    gap: var(--space-3);
+    flex-wrap: wrap;
   }
 
-  .help-icon {
-    width: 20px;
-    height: 20px;
-    color: var(--color-cta);
+  .specialist-avatar-wrap {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid rgba(14, 165, 233, 0.4);
+    padding: 2px;
+    background: #f1f5f9;
     flex-shrink: 0;
   }
 
-  .help-heading {
+  .specialist-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .avatar-status-dot {
+    position: absolute;
+    bottom: -1px;
+    right: -1px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background-color: var(--color-success);
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+  }
+
+  .specialist-titles {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    flex: 1;
+    min-width: 140px;
+  }
+
+  .specialist-name-role {
     font-family: var(--font-heading);
-    font-size: var(--text-sm);
+    font-size: 0.9375rem;
     font-weight: 700;
     color: var(--color-text-main);
+    line-height: 1.2;
+  }
+
+  .specialist-status-text {
+    font-size: 0.6875rem;
+    color: var(--color-brand);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .specialist-direct-badge {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-cta);
+    background: rgba(249, 115, 22, 0.1);
+    border: 1px solid rgba(249, 115, 22, 0.25);
+    padding: 0.25rem 0.55rem;
+    border-radius: var(--radius-full);
+  }
+
+  /* Help Card Copy */
+  .help-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .help-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    line-height: 1.35;
+    margin: 0;
   }
 
   .help-copy {
     font-size: var(--text-xs);
-    line-height: 1.6;
+    line-height: 1.65;
     color: var(--color-text-muted);
+    margin: 0;
   }
 
+  /* Action Buttons */
   .help-actions {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 1rem;
-    margin-top: var(--space-2);
+    flex-direction: column;
+    gap: var(--space-2-5, 0.625rem);
   }
 
-  .help-btn {
+  @media (min-width: 480px) {
+    .help-actions {
+      flex-direction: row;
+      align-items: center;
+      gap: var(--space-3);
+    }
+  }
+
+  .help-btn-primary {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
-    padding: 0.55rem 1rem;
+    padding: 0.65rem 1.25rem;
     background-color: var(--color-cta);
     color: var(--color-cta-contrast);
     font-size: var(--text-xs);
     font-weight: 700;
     border-radius: var(--radius-full);
-    transition: background-color var(--transition-fast), transform var(--transition-fast);
+    text-decoration: none;
+    box-shadow: 0 4px 14px -2px rgba(249, 115, 22, 0.4);
+    transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
   }
 
-  .help-btn:hover {
+  .help-btn-primary:hover {
     background-color: var(--color-cta-hover);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px -2px rgba(249, 115, 22, 0.55);
   }
 
   .btn-icon {
     width: 14px;
     height: 14px;
+    flex-shrink: 0;
   }
 
-  .help-link {
+  .help-btn-secondary {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.65rem 1rem;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
     font-size: var(--text-xs);
     font-weight: 600;
-    color: var(--color-accent-cyan-light);
-    transition: color var(--transition-fast);
-  }
-
-  .help-link:hover {
     color: var(--color-text-main);
+    text-decoration: none;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
   }
 
-  .link-arrow {
+  .help-btn-secondary:hover {
+    background: var(--color-brand-tint);
+    border-color: var(--color-brand);
+    color: var(--color-brand);
+    transform: translateY(-1px);
+  }
+
+  .btn-arrow {
     width: 14px;
     height: 14px;
+    flex-shrink: 0;
     transition: transform var(--transition-fast);
   }
 
-  .help-link:hover .link-arrow {
+  .help-btn-secondary:hover .btn-arrow {
     transform: translateX(3px);
   }
 
+  /* Footnote Tags */
+  .help-footer-notes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3) var(--space-4);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .trust-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.6875rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  .tag-check {
+    width: 13px;
+    height: 13px;
+    color: var(--color-success);
+    flex-shrink: 0;
+  }
+
   /* ------------------------------------------------------------
-     Right Column: Accordion
+     Right Column: Engineered Accordion Items
      ------------------------------------------------------------ */
   .faq-list-col {
     width: 100%;
@@ -299,120 +653,229 @@ const faqItems: readonly FAQItem[] = [
   }
 
   .faq-item {
-    background-color: var(--color-bg-surface-raised);
+    position: relative;
+    background: #ffffff;
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-xl);
     overflow: hidden;
-    transition: border-color var(--transition-fast), background-color var(--transition-fast);
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+    transition: border-color var(--transition-base), background var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
   }
 
   .faq-item:hover {
-    border-color: var(--color-border-medium);
+    border-color: rgba(37, 99, 235, 0.3);
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+    transform: translateY(-1px);
   }
 
-  .faq-item[open] {
-    border-color: var(--color-brand-border);
-    background-color: var(--color-bg-surface-elevated);
+  .faq-item.is-open {
+    border-color: rgba(37, 99, 235, 0.4);
+    background: #ffffff;
+    box-shadow:
+      0 6px 20px -4px rgba(15, 23, 42, 0.08),
+      0 0 0 1px rgba(37, 99, 235, 0.1);
   }
 
-  .faq-summary {
-    list-style: none;
-    cursor: pointer;
-    user-select: none;
-    padding: clamp(1.15rem, 2.5vw, 1.4rem) clamp(1.25rem, 3vw, 1.75rem);
+  /* Trigger Button: Clean, Edge-to-Edge, Accessible */
+  .faq-trigger {
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding: clamp(1.15rem, 2.5vw, 1.45rem) clamp(1.25rem, 3vw, 1.75rem);
+    background: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    user-select: none;
+    text-align: left;
     transition: background-color var(--transition-fast);
   }
 
-  .faq-summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .faq-summary:hover {
-    background-color: rgba(255, 255, 255, 0.02);
-  }
-
-  .faq-summary:focus-visible {
+  .faq-trigger:focus-visible {
     outline: none;
     box-shadow: var(--ring-focus);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-xl);
+  }
+
+  /* Left Align Group: Index Badge + Question Text */
+  .trigger-left {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    flex: 1;
+  }
+
+  /* Monospace Index Badge (Top aligned precisely with the question text) */
+  .faq-index-badge {
+    margin-top: 0.15rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: var(--color-cta);
+    background: rgba(249, 115, 22, 0.12);
+    border: 1px solid rgba(249, 115, 22, 0.25);
+    padding: 0.2rem 0.45rem;
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+    letter-spacing: 0.05em;
+    line-height: 1;
+    transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+  }
+
+  .faq-item.is-open .faq-index-badge {
+    background: var(--color-cta);
+    color: var(--color-cta-contrast);
+    border-color: var(--color-cta);
   }
 
   .faq-question-text {
     font-family: var(--font-heading);
-    font-size: var(--text-base);
+    font-size: clamp(0.9375rem, 0.9rem + 0.2vw, 1.0625rem);
     font-weight: 700;
     color: var(--color-text-main);
-    line-height: 1.35;
+    line-height: 1.45;
+    margin: 0;
+    transition: color var(--transition-fast);
   }
 
-  .faq-icon-wrapper {
-    width: 32px;
-    height: 32px;
-    border-radius: var(--radius-full);
-    background-color: rgba(255, 255, 255, 0.04);
+  .faq-item:hover .faq-question-text {
+    color: var(--color-brand);
+  }
+
+  .faq-item.is-open .faq-question-text {
+    color: var(--color-brand);
+  }
+
+  /* Circular Glass Toggle Button (Top aligned with first line of question) */
+  .faq-toggle-btn {
+    margin-top: 0.15rem;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #f1f5f9;
     border: 1px solid var(--color-border);
     display: grid;
     place-items: center;
     flex-shrink: 0;
-    transition: transform var(--transition-normal), background-color var(--transition-fast), border-color var(--transition-fast);
+    transition: transform var(--transition-normal), background-color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
   }
 
-  .faq-icon {
+  .faq-chevron {
     width: 16px;
     height: 16px;
     color: var(--color-cta);
-    transition: transform var(--transition-normal);
+    transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1), color var(--transition-fast);
   }
 
-  .faq-item[open] .faq-icon {
-    transform: rotate(180deg);
+  .faq-item:hover .faq-toggle-btn {
+    background: #e2e8f0;
+    border-color: var(--color-border-strong);
   }
 
-  .faq-item[open] .faq-icon-wrapper {
-    background-color: var(--color-cta-tint);
+  .faq-item.is-open .faq-toggle-btn {
+    background: rgba(249, 115, 22, 0.12);
     border-color: rgba(249, 115, 22, 0.35);
+    box-shadow: 0 0 12px rgba(249, 115, 22, 0.2);
   }
 
-  .faq-answer {
-    padding: 0 clamp(1.25rem, 3vw, 1.75rem) clamp(1.25rem, 3vw, 1.5rem);
-    border-top: 1px solid var(--color-border-subtle);
-    padding-top: 1rem;
+  .faq-item.is-open .faq-chevron {
+    transform: rotate(180deg);
+    color: var(--color-cta);
+  }
+
+  /* ------------------------------------------------------------
+     Silky Smooth Collapse Panel (CSS Grid Height Transition)
+     ------------------------------------------------------------ */
+  .faq-collapse-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 320ms cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+  }
+
+  .faq-item.is-open .faq-collapse-panel {
+    grid-template-rows: 1fr;
+  }
+
+  .faq-inner-body {
+    min-height: 0;
+    overflow: hidden;
+    padding: 0 clamp(1.25rem, 3vw, 1.75rem);
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 280ms ease, transform 280ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .faq-item.is-open .faq-inner-body {
+    opacity: 1;
+    transform: translateY(0);
+    padding-bottom: clamp(1.25rem, 3vw, 1.75rem);
+  }
+
+  /* Accent divider between Question and Answer */
+  .faq-body-divider {
+    height: 1px;
+    background: var(--color-border);
+    margin-bottom: var(--space-4);
+  }
+
+  /* Highlights Row */
+  .faq-highlights-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+
+  .highlight-pill {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: var(--color-brand);
+    background: rgba(29, 78, 216, 0.06);
+    border: 1px solid rgba(29, 78, 216, 0.2);
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-full);
+    letter-spacing: 0.02em;
+  }
+
+  /* Paragraphs with high-readability line-height */
+  .faq-text-paragraphs {
     display: flex;
     flex-direction: column;
-    gap: 0.85rem;
-    animation: faqSlideDown 200ms ease forwards;
+    gap: var(--space-3);
   }
 
-  .faq-answer p {
+  .faq-text-paragraphs p {
     font-size: var(--text-sm);
-    line-height: 1.7;
+    line-height: 1.72;
     color: var(--color-text-body);
+    margin: 0;
   }
 
-  @keyframes faqSlideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-4px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
+  /* Reduced Motion Accessibility */
   @media (prefers-reduced-motion: reduce) {
-    .faq-answer {
-      animation: none;
-    }
-    .faq-icon {
+    .faq-collapse-panel {
       transition: none;
     }
-    .faq-icon-wrapper {
+    .faq-inner-body {
       transition: none;
+      transform: none;
+    }
+    .faq-chevron {
+      transition: none;
+    }
+    .faq-toggle-btn {
+      transition: none;
+    }
+    .faq-item {
+      transition: none;
+      transform: none;
     }
   }
 </style>

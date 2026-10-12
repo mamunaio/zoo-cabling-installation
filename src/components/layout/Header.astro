@@ -114,14 +114,14 @@ const navLinks: readonly NavLink[] = [
     top: 0;
     z-index: 50;
     width: 100%;
-    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
   }
 
   /* ------------------------------------------------------------
      Top Compliance / Announcement Bar
      ------------------------------------------------------------ */
   .compliance-bar {
-    background: #060a14;
+    background: var(--color-bg-surface);
     border-bottom: 1px solid var(--color-border);
     padding-block: 0.4rem;
     font-size: var(--text-xs);
@@ -179,7 +179,7 @@ const navLinks: readonly NavLink[] = [
   }
 
   .compliance-phone:hover {
-    color: var(--color-accent-cyan-light);
+    color: var(--color-brand);
   }
 
   @media (max-width: 768px) {
@@ -194,7 +194,7 @@ const navLinks: readonly NavLink[] = [
      Main Sticky Navbar
      ------------------------------------------------------------ */
   .site-header {
-    background: rgba(10, 15, 29, 0.88);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--color-border);
@@ -301,7 +301,7 @@ const navLinks: readonly NavLink[] = [
     padding: 0.6rem 0.9rem;
     border-radius: var(--radius-full);
     border: 1px solid var(--color-border-medium);
-    background: rgba(255, 255, 255, 0.03);
+    background: #ffffff;
     color: var(--color-text-main);
     font-size: var(--text-sm);
     font-weight: 600;
@@ -310,15 +310,15 @@ const navLinks: readonly NavLink[] = [
   }
 
   .btn-phone:hover {
-    border-color: var(--color-brand-border);
+    border-color: var(--color-brand);
     background: var(--color-brand-tint);
-    color: #ffffff;
+    color: var(--color-brand);
   }
 
   .icon-phone {
     width: 16px;
     height: 16px;
-    color: var(--color-accent-cyan-light);
+    color: var(--color-brand);
   }
 
   .btn-quote {
@@ -334,7 +334,7 @@ const navLinks: readonly NavLink[] = [
     font-weight: 700;
     letter-spacing: 0.01em;
     transition: all var(--transition-fast);
-    box-shadow: 0 2px 10px rgba(249, 115, 22, 0.35);
+    box-shadow: 0 2px 10px rgba(249, 115, 22, 0.25);
     white-space: nowrap;
   }
 
@@ -362,7 +362,7 @@ const navLinks: readonly NavLink[] = [
     width: 42px;
     height: 42px;
     border-radius: var(--radius-md);
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--color-bg-surface);
     border: 1px solid var(--color-border);
     color: var(--color-text-main);
     cursor: pointer;
@@ -370,7 +370,7 @@ const navLinks: readonly NavLink[] = [
   }
 
   .mobile-toggle:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--color-bg-surface-hover);
     border-color: var(--color-border-medium);
   }
 

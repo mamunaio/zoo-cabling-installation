@@ -98,9 +98,9 @@ const { id = 'final-cta' } = Astro.props;
   .cta-card {
     position: relative;
     border-radius: var(--radius-xl);
-    border: 1px solid var(--color-brand-border);
-    background: linear-gradient(135deg, rgba(23, 34, 59, 0.95) 0%, rgba(16, 23, 42, 0.98) 100%);
-    box-shadow: var(--shadow-lg), 0 0 40px -10px rgba(37, 99, 235, 0.2);
+    border: 1px solid rgba(29, 78, 216, 0.15);
+    background: linear-gradient(135deg, #ffffff 0%, #eff6ff 100%);
+    box-shadow: var(--shadow-lg), 0 10px 40px -15px rgba(29, 78, 216, 0.12);
     overflow: hidden;
     padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.25rem, 5vw, 3.5rem);
     text-align: center;
@@ -121,14 +121,14 @@ const { id = 'final-cta' } = Astro.props;
     height: 100%;
     object-fit: cover;
     object-position: center;
-    opacity: 0.12;
+    opacity: 0.08;
     filter: saturate(1.1);
   }
 
   .cta-overlay {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at center, rgba(37, 99, 235, 0.15) 0%, rgba(10, 15, 29, 0.85) 100%);
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.95) 100%);
   }
 
   /* ------------------------------------------------------------
@@ -235,28 +235,30 @@ const { id = 'final-cta' } = Astro.props;
     justify-content: center;
     gap: 0.6rem;
     padding: 0.85rem 1.75rem;
-    background-color: rgba(255, 255, 255, 0.06);
+    background-color: #ffffff;
     color: var(--color-text-main);
     font-family: var(--font-heading);
     font-size: var(--text-base);
     font-weight: 600;
-    border: 1px solid var(--color-border-medium);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-full);
-    transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast), color var(--transition-fast);
     text-decoration: none;
     min-height: 48px;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
   }
 
   .btn-cta-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.12);
-    border-color: var(--color-brand-light);
+    background-color: var(--color-brand-tint);
+    border-color: var(--color-brand);
+    color: var(--color-brand);
     transform: translateY(-2px);
   }
 
   .btn-phone {
     width: 18px;
     height: 18px;
-    color: var(--color-accent-cyan-light);
+    color: var(--color-brand);
   }
 
   /* ------------------------------------------------------------
@@ -270,11 +272,12 @@ const { id = 'final-cta' } = Astro.props;
     gap: 0.5rem;
     font-size: var(--text-xs);
     color: var(--color-text-muted);
-    background: rgba(16, 23, 42, 0.6);
+    background: #ffffff;
     border: 1px solid var(--color-border);
     padding: 0.55rem 1.15rem;
     border-radius: var(--radius-full);
     max-width: 100%;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
   }
 
   .pin-icon {
@@ -292,7 +295,7 @@ const { id = 'final-cta' } = Astro.props;
   }
 
   .suburbs-link {
-    color: var(--color-accent-cyan-light);
+    color: var(--color-brand);
     font-weight: 600;
     display: inline-flex;
     align-items: center;
@@ -301,7 +304,7 @@ const { id = 'final-cta' } = Astro.props;
   }
 
   .suburbs-link:hover {
-    color: var(--color-text-main);
+    color: var(--color-brand-hover);
     text-decoration: underline;
   }
 

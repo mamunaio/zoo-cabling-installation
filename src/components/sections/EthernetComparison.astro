@@ -171,7 +171,7 @@ const comparisonData: readonly ComparisonItem[] = [
 <style>
   .comparison-section {
     padding-block: var(--section-padding-y);
-    background-color: var(--color-bg-base);
+    background-color: var(--color-bg-surface);
     border-top: 1px solid var(--color-border);
     position: relative;
   }
@@ -234,7 +234,7 @@ const comparisonData: readonly ComparisonItem[] = [
   }
 
   .table-wrapper {
-    background: var(--color-bg-surface);
+    background: #ffffff;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
     overflow: hidden;
@@ -248,8 +248,8 @@ const comparisonData: readonly ComparisonItem[] = [
   }
 
   thead {
-    background: rgba(10, 15, 29, 0.6);
-    border-bottom: 1px solid var(--color-border-medium);
+    background: #f1f5f9;
+    border-bottom: 1px solid var(--color-border);
   }
 
   th, td {
@@ -264,14 +264,14 @@ const comparisonData: readonly ComparisonItem[] = [
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--color-text-faint);
+    color: var(--color-text-muted);
   }
 
   .col-wired {
     width: 37%;
-    background: rgba(37, 99, 235, 0.04);
-    border-left: 1px solid var(--color-border-medium);
-    border-right: 1px solid var(--color-border-medium);
+    background: rgba(29, 78, 216, 0.03);
+    border-left: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
   }
 
   .col-wifi {
@@ -316,8 +316,8 @@ const comparisonData: readonly ComparisonItem[] = [
     width: 22px;
     height: 22px;
     border-radius: var(--radius-full);
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--color-text-faint);
+    background: rgba(15, 23, 42, 0.05);
+    color: var(--color-text-muted);
   }
 
   .icon-th {
@@ -335,7 +335,7 @@ const comparisonData: readonly ComparisonItem[] = [
   }
 
   tbody tr:hover {
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(15, 23, 42, 0.02);
   }
 
   .row-dimension {
@@ -360,9 +360,9 @@ const comparisonData: readonly ComparisonItem[] = [
   }
 
   .cell-wired {
-    background: rgba(37, 99, 235, 0.03);
-    border-left: 1px solid var(--color-border-medium);
-    border-right: 1px solid var(--color-border-medium);
+    background: rgba(29, 78, 216, 0.03);
+    border-left: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
   }
 
   .cell-content {
@@ -405,13 +405,14 @@ const comparisonData: readonly ComparisonItem[] = [
   }
 
   .mobile-card {
-    background: var(--color-bg-surface);
+    background: #ffffff;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     padding: var(--space-4);
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
   }
 
   .mobile-card-header {
@@ -450,12 +451,12 @@ const comparisonData: readonly ComparisonItem[] = [
   }
 
   .block-wired {
-    background: rgba(37, 99, 235, 0.08);
-    border: 1px solid var(--color-brand-border);
+    background: rgba(29, 78, 216, 0.05);
+    border: 1px solid rgba(29, 78, 216, 0.2);
   }
 
   .block-wifi {
-    background: rgba(255, 255, 255, 0.03);
+    background: #f8fafc;
     border: 1px solid var(--color-border);
   }
 
@@ -504,23 +505,24 @@ const comparisonData: readonly ComparisonItem[] = [
     gap: var(--space-3);
     margin-top: var(--space-6);
     padding: var(--space-4);
-    background: rgba(15, 23, 42, 0.5);
+    background: #ffffff;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     font-size: var(--text-xs);
     line-height: 1.6;
     color: var(--color-text-muted);
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
   }
 
   .disclaimer-icon {
     width: 18px;
     height: 18px;
-    color: var(--color-accent-cyan-light);
+    color: var(--color-brand);
     flex-shrink: 0;
     margin-top: 2px;
   }
 
   .technical-disclaimer strong {
-    color: var(--color-text-body);
+    color: var(--color-text-main);
   }
 </style>
