@@ -16,13 +16,50 @@ interface Props {
 const {
   title = `${business.name} | Professional Data & Ethernet Cabling Brisbane`,
   description = "ACMA licensed Cat6 and Cat6A data cabling installation for homes, offices, gaming setups, smart TVs and security cameras across Brisbane.",
-  canonicalUrl = `${business.canonicalDomain}/`,
+  canonicalUrl = business.canonicalUrl,
 } = Astro.props;
+
+// LocalBusiness structured data using only verified business information
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: business.name,
+  description: description,
+  url: canonicalUrl,
+  telephone: business.phoneTel,
+  image: `${business.canonicalDomain}${business.assetPath}/zoologo.webp`,
+  priceRange: '$$',
+  areaServed: {
+    '@type': 'City',
+    name: 'Brisbane',
+  },
+};
 ---
 
 <!doctype html>
 <html lang="en-AU">
   <head>
+    <!-- Google Tag Manager: GTM-T9XKCPHC -->
+    <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T9XKCPHC');</script>
+
+    <!-- Google Tag Manager: GTM-ML84XCDW -->
+    <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-ML84XCDW');</script>
+
+    <!-- Google Tag Manager: GTM-PN3M4MSF -->
+    <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PN3M4MSF');</script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
@@ -35,14 +72,17 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content={`${business.canonicalDomain}/images/hero-cabling-v3.jpg`} />
+    <meta property="og:image" content={`${business.canonicalDomain}${business.assetPath}/hero-cabling-v3.webp`} />
     <meta property="og:locale" content="en_AU" />
 
     <!-- Twitter Card Metadata -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={`${business.canonicalDomain}/images/hero-cabling-v3.jpg`} />
+    <meta name="twitter:image" content={`${business.canonicalDomain}${business.assetPath}/hero-cabling-v3.webp`} />
+
+    <!-- LocalBusiness Structured Data JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
 
     <!-- Google Fonts Preconnect & Inter / Outfit Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -53,6 +93,11 @@ const {
     />
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T9XKCPHC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-ML84XCDW" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PN3M4MSF" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
     <Header />
     <MobileNav />
     <slot />

@@ -1,6 +1,6 @@
 /**
  * Single source of truth for verified business information.
- * Based strictly on verified content from https://cabling.zoorepairs.com.au/.
+ * Target production URL: https://www.zoorepairs.com.au/computer-services/data-cabling-installation/
  * Does not invent unverified street addresses, ratings, or arbitrary hours.
  */
 
@@ -11,7 +11,9 @@ export interface BusinessConfig {
   readonly phoneTel: string;
   readonly quoteUrl: string;
   readonly serviceArea: string;
+  readonly canonicalUrl: string;
   readonly canonicalDomain: string;
+  readonly assetPath: string;
   readonly primaryServices: readonly string[];
 }
 
@@ -22,7 +24,9 @@ export const business: BusinessConfig = {
   phoneTel: '+61477319160',
   quoteUrl: 'https://www.zoorepairs.com.au/get-quote/',
   serviceArea: 'Brisbane & Surrounding Suburbs',
-  canonicalDomain: 'https://cabling.zoorepairs.com.au',
+  canonicalUrl: 'https://www.zoorepairs.com.au/computer-services/data-cabling-installation/',
+  canonicalDomain: 'https://www.zoorepairs.com.au',
+  assetPath: '/assets/data-cabling-installation',
   primaryServices: [
     'Home Office & Remote Work',
     'Low-Latency Gaming Rooms',
